@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#adjustGridBtn{
+    margin-bottom: 30px;
+    height: 40px;
+    width: 110px;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    border: solid 2px black;
+    width: 644px;
+    height: 643px;
+}
+
+#container div { 
+    /* background-color: yellow; */
+    width: 40px;
+    height: 40px;
+    border: solid 1px black;
+}
