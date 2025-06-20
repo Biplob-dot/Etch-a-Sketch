@@ -20,15 +20,16 @@ body{
     width: 80px;
 }
 
-#container{
+#canvasContainer{
+    border: solid 1px black;
+    box-sizing: content-box;
     display: flex;
     flex-wrap: wrap;
-    border: solid 2px black;
-    width: 643.2px;
-    height: 643px;
+    width: 640px;
+    height: 640px;
 }
 
-#container div { 
+#canvasContainer div { 
     border: solid 1px black;
 }
 

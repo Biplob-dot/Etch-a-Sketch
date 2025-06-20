@@ -1,4 +1,4 @@
-const container = document.querySelector("#container");
+const canvasContainer = document.querySelector("#canvasContainer");
 const adjustGridBtn = document.querySelector("#adjustGridBtn");
 const clearGridBtn = document.querySelector("#clearGridBtn");
 let gridSize = 16; //default;
@@ -8,13 +8,13 @@ let drawColor = "yellow" //default;
 const makeGrid = () => {
     for(let i = 0; i<(gridSize*gridSize); i++){
             const div = document.createElement("div");
-            div.style.width = `${643.1/gridSize}px`;
-            div.style.height = `${643/gridSize}px`;
+            div.style.width = `${640/gridSize}px`;
+            div.style.height = `${640/gridSize}px`;
             div.addEventListener("mouseover", () => {
                 div.style.backgroundColor = drawColor;
             })
             divs.push(div);
-            container.appendChild(div);
+            canvasContainer.appendChild(div);
         }
 }
 
@@ -26,37 +26,18 @@ adjustGridBtn.addEventListener("click", () => {
     }
     if(gridSize <= 100){
         drawColor = prompt("Enter color: (red, blue, green, yellow)");
-        // for(let i = 0; i<(gridSize*gridSize); i++){
-        //     const div = document.createElement("div");
-        //     div.style.width = `${640/gridSize}px`;
-        //     div.style.height = `${640/gridSize}px`;
-        //     div.addEventListener("mouseover", () => {
-        //         div.style.backgroundColor = drawColor;
-        //     })
-        //     divs.push(div);
-        //     container.appendChild(div);
         makeGrid();
     }
     }
 )
 
 const resetGrid = () => {
-  divs.forEach(div => container.removeChild(div));
+  divs.forEach(div => canvasContainer.removeChild(div));
   divs = [];
 };
 
 const clearGrid = () => {
     resetGrid();
-    // for(let i = 0; i<(gridSize*gridSize); i++){
-    //         const div = document.createElement("div");
-    //         div.style.width = `${643.1/gridSize}px`;
-    //         div.style.height = `${643/gridSize}px`;
-    //         div.addEventListener("mouseover", () => {
-    //             div.style.backgroundColor = drawColor;
-    //         })
-    //         divs.push(div);
-    //         container.appendChild(div);
-    //     }
     makeGrid();
 }
 
