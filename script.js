@@ -5,6 +5,19 @@ let gridSize = 16; //default;
 let divs = [];
 let drawColor = "yellow" //default;
 
+const makeGrid = () => {
+    for(let i = 0; i<(gridSize*gridSize); i++){
+            const div = document.createElement("div");
+            div.style.width = `${643.1/gridSize}px`;
+            div.style.height = `${643/gridSize}px`;
+            div.addEventListener("mouseover", () => {
+                div.style.backgroundColor = drawColor;
+            })
+            divs.push(div);
+            container.appendChild(div);
+        }
+}
+
 adjustGridBtn.addEventListener("click", () => {
     resetGrid();
     gridSize = parseInt(prompt("Enter the size of the Grid: "));
@@ -13,18 +26,19 @@ adjustGridBtn.addEventListener("click", () => {
     }
     if(gridSize <= 100){
         drawColor = prompt("Enter color: (red, blue, green, yellow)");
-        for(let i = 0; i<(gridSize*gridSize); i++){
-            const div = document.createElement("div");
-            div.style.width = `${640/gridSize}px`;
-            div.style.height = `${640/gridSize}px`;
-            div.addEventListener("mouseover", () => {
-                div.style.backgroundColor = drawColor;
-            })
-            divs.push(div);
-            container.appendChild(div);
+        // for(let i = 0; i<(gridSize*gridSize); i++){
+        //     const div = document.createElement("div");
+        //     div.style.width = `${640/gridSize}px`;
+        //     div.style.height = `${640/gridSize}px`;
+        //     div.addEventListener("mouseover", () => {
+        //         div.style.backgroundColor = drawColor;
+        //     })
+        //     divs.push(div);
+        //     container.appendChild(div);
+        makeGrid();
     }
     }
-})
+)
 
 const resetGrid = () => {
   divs.forEach(div => container.removeChild(div));
@@ -33,16 +47,17 @@ const resetGrid = () => {
 
 const clearGrid = () => {
     resetGrid();
-    for(let i = 0; i<(gridSize*gridSize); i++){
-            const div = document.createElement("div");
-            div.style.width = `${640/gridSize}px`;
-            div.style.height = `${640/gridSize}px`;
-            div.addEventListener("mouseover", () => {
-                div.style.backgroundColor = drawColor;
-            })
-            divs.push(div);
-            container.appendChild(div);
-        }
+    // for(let i = 0; i<(gridSize*gridSize); i++){
+    //         const div = document.createElement("div");
+    //         div.style.width = `${643.1/gridSize}px`;
+    //         div.style.height = `${643/gridSize}px`;
+    //         div.addEventListener("mouseover", () => {
+    //             div.style.backgroundColor = drawColor;
+    //         })
+    //         divs.push(div);
+    //         container.appendChild(div);
+    //     }
+    makeGrid();
 }
 
 clearGridBtn.addEventListener("click", clearGrid);
