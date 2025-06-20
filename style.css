@@ -10,8 +10,12 @@ body{
     align-items: center;
     height: 100vh;
 }
-#adjustGridBtn{
+#gridBtnContainer{
     margin-bottom: 20px;
+}
+
+.gridBtn{
+    margin: 0px 5px 0px 5px;
     height: 25px;
     width: 80px;
 }
