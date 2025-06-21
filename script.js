@@ -7,10 +7,19 @@ const greenBtn = document.querySelector("#greenBtn");
 const yellowBtn = document.querySelector("#yellowBtn");
 let gridSize = 16; //default;
 let divs = [];
+let coloredDiv = [];
 let rgb_red = 255;
 let rgb_blue = 255;
 let rgb_green = 255;
 let drawColor = "rgb(255,255,255)"; //default;
+
+// function trailingEffect(index,div){
+//     if(index <= 0 || index == coloredDiv.indexOf(div) - 10){
+//         rgb_red = rgb_blue = rgb_green = 0;
+//         previousDiv.style.backgroundColor = `rgb(${rgb_red},${rgb_green},${rgb_blue})`;
+//     }
+//     const previousDiv = coloredDiv.indexOf(div);
+// }
 
 const makeGrid = () => {
     for (let i = 0; i < gridSize * gridSize; i++) {
@@ -19,10 +28,13 @@ const makeGrid = () => {
         div.style.height = `${640 / gridSize}px`;
         div.addEventListener("mouseover", () => {
             div.style.backgroundColor = `rgb(${rgb_red},${rgb_green},${rgb_blue})`;
-            // const index = divs.indexOf(div);
+            coloredDiv.push(div);
+
+            // const index = coloredDiv.indexOf(div);
             // if (index > 0) {
-            //     const previousDiv = divs[index - 1];
-            //     previousDiv.style.backgroundColor = "lightgray"; // or any color/action
+            //     const previousDiv = coloredDiv[index - 1];
+            //     rgb_red = rgb_red - (0.1*255);
+            //     previousDiv.style.backgroundColor = `rgb(${rgb_red},${rgb_green},${rgb_blue})`;
             // }
         });
         divs.push(div);
